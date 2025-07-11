@@ -7,6 +7,48 @@ import Button from '@mui/material/Button';
 
 const animatedWords = ['INNOVACIÓN', 'CREATIVIDAD'];
 
+const HighlightedWord = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => {
+  const [show, setShow] = React.useState(false);
+  React.useEffect(() => {
+    const timer = setTimeout(() => setShow(true), delay * 1000);
+    return () => clearTimeout(timer);
+  }, [delay]);
+  return (
+    <span
+      style={{
+        position: 'relative',
+        display: 'inline-block',
+        padding: '0 6px 2px 6px',
+      }}
+    >
+      {show && (
+        <span
+          style={{
+            position: 'absolute',
+            left: 0,
+            bottom: 2,
+            width: '100%',
+            height: '85%',
+            background: 'rgba(254,83,55,0.32)',
+            borderRadius: 8,
+            zIndex: 0,
+            pointerEvents: 'none',
+            animation: `highlightMarker 1.1s cubic-bezier(0.4,0,0.2,1) 0s 1`,
+            transformOrigin: 'left',
+          } as React.CSSProperties}
+        />
+      )}
+      <span style={{ position: 'relative', zIndex: 1 }}>{children}</span>
+      <style>{`
+        @keyframes highlightMarker {
+          from { transform: scaleX(0); opacity: 0.7; }
+          to { transform: scaleX(1); opacity: 1; }
+        }
+      `}</style>
+    </span>
+  );
+};
+
 const WhoWeAreSection: React.FC = () => {
   const [wordIndex, setWordIndex] = React.useState(0);
   const [animate, setAnimate] = React.useState(true);
@@ -115,7 +157,7 @@ const WhoWeAreSection: React.FC = () => {
           maxWidth: 720,
         }}
       >
-        Creamos el futuro digital: tecnología, talento y pasión en cada proyecto
+        Creamos el futuro digital: <HighlightedWord delay={0}>tecnología</HighlightedWord>, <HighlightedWord delay={0.5}>talento</HighlightedWord> y <HighlightedWord delay={1}>pasión</HighlightedWord> en cada proyecto
       </Typography>
       <Typography
         align="center"
@@ -144,7 +186,7 @@ const WhoWeAreSection: React.FC = () => {
         <img
           src="/home/homemakers.png"
           alt="Who we are"
-          style={{ width: '100%', display: 'block', borderRadius: '16px' }}
+          style={{ width: '100%', display: 'block'}}
         />
       </Box>
     </Box>
