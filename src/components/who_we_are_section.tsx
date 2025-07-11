@@ -1,9 +1,28 @@
+"use client";
+
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
+const animatedWords = ['INNOVACIÓN', 'CREATIVIDAD'];
+
 const WhoWeAreSection: React.FC = () => {
+  const [wordIndex, setWordIndex] = React.useState(0);
+  const [animate, setAnimate] = React.useState(true);
+
+  React.useEffect(() => {
+    if (!animate) return;
+    const timeout = setTimeout(() => {
+      setAnimate(false);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % animatedWords.length);
+        setAnimate(true);
+      }, 400); // Breve pausa antes de cambiar
+    }, 2200); // Duración de la animación
+    return () => clearTimeout(timeout);
+  }, [wordIndex, animate]);
+
   return (
     <Box sx={{
       width: '100%',
@@ -11,60 +30,110 @@ const WhoWeAreSection: React.FC = () => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      pt: 8,
-      pb: { xs: 10, md: 12 }, // menos padding abajo para acercar la imagen
+      pt: 8, // más espacio arriba
+      pb: { xs: 18, md: 20 }, // más espacio abajo
       position: 'relative',
       zIndex: 1,
     }}>
-      <Button
-        variant="contained"
+      {/* Banner superior animado */}
+      <Box
         sx={{
-          background: '#3B5EFF',
-          color: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          background: '#FE5337',
           borderRadius: '999px',
-          px: 4,
-          py: 1.2,
-          fontSize: 20,
-          fontWeight: 500,
-          mb: 4,
-          textTransform: 'none',
-          boxShadow: 'none',
-          '&:hover': { background: '#2A47C6', boxShadow: 'none' },
+          px: 0.7,
+          paddingRight: 2,
+          py: 0.5,
+          mb: 10, // más espacio debajo del banner
+          maxWidth: 700,
+          minHeight: 48,
+          boxShadow: 2,
         }}
-        disableElevation
       >
-        Who we are
-      </Button>
+        <Box
+          sx={{
+            background: '#fff',
+            color: '#FE5337',
+            borderRadius: '999px',
+            px: 3,
+            py: 1,
+            fontWeight: 500,
+            fontSize: 15,
+            display: 'flex',
+            alignItems: 'center',
+            minWidth: 70,
+            justifyContent: 'center',
+            mr: 3, // más espacio entre la etiqueta y el texto
+            overflow: 'hidden',
+            position: 'relative',
+            width: 120,
+            height: 36,
+          }}
+        >
+          <span
+            style={{
+              display: 'inline-block',
+              position: 'absolute',
+              left: animate ? 0 : '100%',
+              transition: 'left 2s cubic-bezier(0.4,0,0.2,1)',
+              whiteSpace: 'nowrap',
+              width: '100%',
+              textAlign: 'center',
+            }}
+          >
+            {animatedWords[wordIndex]}
+          </span>
+        </Box>
+        <Typography
+          sx={{
+            color: 'white',
+            fontSize: 18,
+            fontWeight: 400,
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          Makers innova, crea y lidera.
+          <span style={{ fontSize: 22, marginLeft: 8, display: 'inline-block', verticalAlign: 'middle' }}>→</span>
+        </Typography>
+      </Box>
+      {/* Fin banner superior animado */}
       <Typography
         variant="h2"
         align="center"
         sx={{
           color: 'white',
-          fontWeight: 400,
-          fontSize: { xs: '2.5rem', md: '4rem' },
-          lineHeight: 1.1,
+          fontWeight: 200,
+          fontSize: { xs: '2.4rem', md: '2.3rem' },
+          lineHeight: 1.15,
           mb: 3,
+          maxWidth: 720,
         }}
       >
-        A top-notch team meets<br />a purposeful mission
+        Creamos el futuro digital: tecnología, talento y pasión en cada proyecto
       </Typography>
       <Typography
         align="center"
         sx={{
           color: '#B0B3B8',
-          fontSize: { xs: 18, md: 22 },
-          maxWidth: 800,
-          mb: 6,
+          fontSize: { xs: 12, md: 16 },
+          maxWidth: 570,
+          mb: 5,
         }}
       >
-        Jungle develops the world 's most effective tools to resolve machine underperformance. Using state-of-the-art AI technology, we solve society’s most pressing challenges, by conquering operational complexity and giving people full understanding of their machines.
+        En Makers, desarrollamos soluciones digitales que impulsan la transformación de empresas y mejoran la vida de las personas. Nuestro equipo combina innovación, experiencia y creatividad para llevar cada idea al siguiente nivel y construir juntos un mundo más conectado.
       </Typography>
       <Box
         sx={{
           width: { xs: '95%', sm: '90%', md: '80%' },
-          maxWidth: 1200,
-          mb: { xs: -14, md: -18 }, // margen negativo para superponer
-          borderRadius: 6,
+          maxWidth: 1000,
+          mb: { xs: -10, md: -14 },
+          borderRadius: 4,
           overflow: 'hidden',
           boxShadow: 6,
           background: 'white',
@@ -75,7 +144,7 @@ const WhoWeAreSection: React.FC = () => {
         <img
           src="/home/homemakers.png"
           alt="Who we are"
-          style={{ width: '100%', display: 'block', borderRadius: '24px' }}
+          style={{ width: '100%', display: 'block', borderRadius: '16px' }}
         />
       </Box>
     </Box>

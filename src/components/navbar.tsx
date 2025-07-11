@@ -8,20 +8,19 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const menuItems = [
   { label: 'Solutions', hasMenu: true },
   { label: 'Industries', hasMenu: true },
   { label: 'Resources', hasMenu: true },
-  { label: 'Who we are', hasMenu: false, bold: true },
-  { label: 'Careers', hasMenu: false },
+  { label: 'Who we are', hasMenu: true},
+  { elabel: 'Careers', hasMenu: false },
 ];
 
+// Reemplazo LogoSVG para usar la imagen
 const LogoSVG = () => (
-  <svg width="90" height="40" viewBox="0 0 90 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <text x="0" y="30" fontFamily="'Pacifico', cursive" fontSize="32" fill="white">jungle</text>
-  </svg>
+  <img src="/logos/LOGOTIPO%20MAKERS.png" alt="Logo Makers" style={{ height: 36 }} />
 );
 
 const Navbar: React.FC = () => {
@@ -40,20 +39,33 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ background: '#090909', boxShadow: 'none', minHeight: 80 }}>
+    <AppBar position="static" sx={{ background: '#090909', boxShadow: 'none', minHeight: 80, p: 1.5 }}>
       <Toolbar sx={{ justifyContent: 'space-between', minHeight: 80 }}>
         {/* Logo */}
         <Box sx={{ display: 'flex', alignItems: 'center', minWidth: 120 }}>
           <LogoSVG />
         </Box>
         {/* Menú central */}
-        <Box sx={{ display: 'flex', flex: 1, justifyContent: 'center', gap: 4 }}>
+        <Box sx={{ display: 'flex', flex: 1, justifyContent: 'center', gap: 2 }}>
           {menuItems.map((item, idx) =>
             item.hasMenu ? (
               <Box key={item.label}>
                 <Button
-                  endIcon={<ArrowDropDownIcon />}
-                  sx={{ color: 'white', fontWeight: 400, fontSize: 18, textTransform: 'none' }}
+                  endIcon={<KeyboardArrowDownIcon />}
+                  sx={{ 
+                    color: 'white', 
+                    fontWeight: 400, 
+                    fontSize: 15, 
+                    textTransform: 'none', 
+                    mt: 1,
+                    transition: 'color 0.2s ease',
+                    '&:hover': { 
+                      color: '#EDEA4D',
+                      '& .MuiSvgIcon-root': {
+                        color: '#EDEA4D'
+                      }
+                    }
+                  }}
                   onClick={e => handleMenuOpen(idx, e)}
                 >
                   {item.label}
@@ -72,10 +84,12 @@ const Navbar: React.FC = () => {
                 key={item.label}
                 sx={{
                   color: 'white',
-                  fontWeight: item.bold ? 700 : 400,
                   fontSize: 18,
                   mx: 2,
                   alignSelf: 'center',
+                  transition: 'color 0.2s ease',
+                  cursor: 'pointer',
+                  '&:hover': { color: '#EDEA4D' }
                 }}
               >
                 {item.label}
@@ -89,13 +103,13 @@ const Navbar: React.FC = () => {
           sx={{
             background: '#FFD12A',
             color: 'black',
-            fontWeight: 700,
-            borderRadius: 2,
-            px: 4,
-            py: 1.5,
+            fontWeight: 600,
+            borderRadius: 3,
+            px: 2,
+            py: 1,
             boxShadow: 'none',
             '&:hover': { background: '#FFC300', boxShadow: 'none' },
-            fontSize: 18,
+            fontSize: 13,
             textTransform: 'none',
           }}
         >

@@ -7,13 +7,13 @@ import Chip from '@mui/material/Chip';
 const testimonials = [
   {
     area: 'Product',
-    text: `"My experience at Jungle has been awesome thanks to the people and Canopy being a very interesting product! I've helped implement and improve our users’ experience while learning a lot in the process."`,
+    text: `"My experience at Jungle has been awesome thanks to the people and Canopy being a very interesting product! I've helped implement and improve our users' experience while learning a lot in the process."`,
     name: 'João Palmeiro',
     role: 'Full-stack Developer',
   },
   {
     area: 'R&D',
-    text: `"In the R&D team, we are proud to be driving technological innovation and seeing the direct impact we have on Jungle’s solutions."`,
+    text: `"In the R&D team, we are proud to be driving technological innovation and seeing the direct impact we have on Jungle's solutions."`,
     name: 'João Correia',
     role: 'Machine Learning Engineer',
   },
@@ -45,16 +45,16 @@ const testimonials = [
 
 const TeamTestimonialsSection: React.FC = () => {
   return (
-    <Box sx={{ width: '100%', background: '#090909', py: { xs: 8, md: 12 } }}>
-      <Box sx={{ maxWidth: 1200, mx: 'auto', px: 2 }}>
+    <Box sx={{ width: '100%', background: '#090909', py: { xs: 6, md: 8 } }}>
+      <Box sx={{ maxWidth: 1000, mx: 'auto', px: 2 }}>
         <Typography
           variant="h2"
           align="center"
           sx={{
             color: 'white',
             fontWeight: 400,
-            fontSize: { xs: '2.5rem', md: '3.5rem' },
-            mb: 3,
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            mb: 2,
           }}
         >
           The people behind the machines<br />make the world go round
@@ -63,9 +63,9 @@ const TeamTestimonialsSection: React.FC = () => {
           align="center"
           sx={{
             color: '#B0B3B8',
-            fontSize: { xs: 18, md: 22 },
-            maxWidth: 800,
-            mb: 8,
+            fontSize: { xs: 16, md: 18 },
+            maxWidth: 700,
+            mb: 6,
             mx: 'auto',
           }}
         >
@@ -77,7 +77,7 @@ const TeamTestimonialsSection: React.FC = () => {
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: { xs: 3, md: 4 },
+            gap: { xs: 2, md: 3 },
             justifyContent: 'center',
           }}
         >
@@ -94,8 +94,8 @@ const TeamTestimonialsSection: React.FC = () => {
               <Paper
                 elevation={0}
                 sx={{
-                  borderRadius: 5,
-                  p: { xs: 4, md: 5 },
+                  borderRadius: 4,
+                  p: { xs: 3, md: 4 },
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'flex-start',
@@ -103,7 +103,7 @@ const TeamTestimonialsSection: React.FC = () => {
                   height: '100%',
                   background: '#232323',
                   width: '100%',
-                  minHeight: { xs: 260, md: 280 },
+                  minHeight: { xs: 220, md: 240 },
                 }}
               >
                 <Chip
@@ -112,17 +112,17 @@ const TeamTestimonialsSection: React.FC = () => {
                     background: '#4B5EFF',
                     color: 'white',
                     fontWeight: 500,
-                    fontSize: 18,
-                    borderRadius: '16px',
-                    mb: 3,
-                    px: 2.5,
+                    fontSize: 16,
+                    borderRadius: '12px',
+                    mb: 2,
+                    px: 2,
                     py: 0.5,
                   }}
                 />
-                <Typography sx={{ color: '#D1D1D1', fontSize: 18, mb: 3, fontStyle: 'italic' }}>
+                <Typography sx={{ color: '#D1D1D1', fontSize: 16, mb: 2, fontStyle: 'italic' }}>
                   {t.text}
                 </Typography>
-                <Typography sx={{ color: 'white', fontWeight: 700, fontSize: 17 }}>
+                <Typography sx={{ color: 'white', fontWeight: 700, fontSize: 15 }}>
                   {t.name},<br />
                   <span style={{ fontWeight: 400 }}>{t.role}</span>
                 </Typography>

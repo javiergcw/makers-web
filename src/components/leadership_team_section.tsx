@@ -34,18 +34,18 @@ const leaders = [
 
 const LeadershipTeamSection: React.FC = () => {
   return (
-    <Box sx={{ width: '100%', background: '#F6F6F8', py: { xs: 8, md: 12 } }}>
+    <Box sx={{ width: '100%', background: '#F6F6F8', py: { xs: 6, md: 8 } }}>
       <Box
         sx={{
-          maxWidth: 1500,
+          maxWidth: 1200,
           mx: 'auto',
-          px: { xs: 1, md: 4 },
-          py: { xs: 4, md: 8 },
+          px: { xs: 1, md: 3 },
+          py: { xs: 3, md: 6 },
           background: 'white',
-          borderRadius: 7,
-          minHeight: 800,
-          clipPath: 'polygon(0 0, 100% 6vw, 100% 100%, 0% 100%)',
-          WebkitClipPath: 'polygon(0 0, 100% 6vw, 100% 100%, 0% 100%)',
+          borderRadius: 5,
+          minHeight: 600,
+          clipPath: 'polygon(0 0, 100% 4vw, 100% 100%, 0% 100%)',
+          WebkitClipPath: 'polygon(0 0, 100% 4vw, 100% 100%, 0% 100%)',
           boxSizing: 'border-box',
           display: 'flex',
           flexDirection: 'column',
@@ -57,15 +57,14 @@ const LeadershipTeamSection: React.FC = () => {
             position: 'absolute',
             top: 0,
             right: 0,
-            width: 56,
-            height: 56,
+            width: 48,
+            height: 48,
             background: 'white',
-            borderTopRightRadius: 28,
+            borderTopRightRadius: 24,
             borderTopLeftRadius: 0,
-            borderBottomRightRadius: 28,
+            borderBottomRightRadius: 24,
             borderBottomLeftRadius: 0,
             zIndex: 2,
-            // Ajusta el tamaño y radio según el borderRadius real
           },
         }}
       >
@@ -75,8 +74,8 @@ const LeadershipTeamSection: React.FC = () => {
           sx={{
             color: '#181A1B',
             fontWeight: 400,
-            fontSize: { xs: '2.2rem', md: '3rem' },
-            mb: 6,
+            fontSize: { xs: '1.8rem', md: '2.5rem' },
+            mb: 4,
           }}
         >
           Our leadership team
@@ -85,7 +84,7 @@ const LeadershipTeamSection: React.FC = () => {
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: { xs: 3, md: 4 },
+            gap: { xs: 2, md: 3 },
             justifyContent: 'center',
           }}
         >
@@ -94,10 +93,10 @@ const LeadershipTeamSection: React.FC = () => {
               key={leader.name}
               elevation={0}
               sx={{
-                borderRadius: 5,
+                borderRadius: 4,
                 p: 0,
-                width: { xs: '100%', sm: 320, md: 320 },
-                minWidth: 260,
+                width: { xs: '100%', sm: 280, md: 280 },
+                minWidth: 240,
                 background: '#F6F6F8',
                 overflow: 'hidden',
                 display: 'flex',
@@ -105,16 +104,16 @@ const LeadershipTeamSection: React.FC = () => {
                 alignItems: 'flex-start',
               }}
             >
-              <Box sx={{ position: 'relative', width: '100%', height: 320, background: '#eaeaea' }}>
+              <Box sx={{ position: 'relative', width: '100%', height: 280, background: '#eaeaea' }}>
                 <img
                   src={leader.img}
                   alt={leader.name}
                   style={{
                     width: '100%',
-                    height: 320,
+                    height: 280,
                     objectFit: 'cover',
-                    borderTopLeftRadius: 20,
-                    borderTopRightRadius: 20,
+                    borderTopLeftRadius: 16,
+                    borderTopRightRadius: 16,
                   }}
                 />
                 <IconButton
@@ -123,8 +122,8 @@ const LeadershipTeamSection: React.FC = () => {
                   rel="noopener noreferrer"
                   sx={{
                     position: 'absolute',
-                    top: 12,
-                    right: 12,
+                    top: 10,
+                    right: 10,
                     background: 'white',
                     color: '#181A1B',
                     boxShadow: 1,
@@ -132,14 +131,14 @@ const LeadershipTeamSection: React.FC = () => {
                   }}
                   size="small"
                 >
-                  <LinkedInIcon fontSize="medium" />
+                  <LinkedInIcon fontSize="small" />
                 </IconButton>
               </Box>
-              <Box sx={{ p: 3, pt: 2, width: '100%' }}>
-                <Typography variant="h6" sx={{ fontWeight: 600, color: '#181A1B', fontSize: 24, mb: 1 }}>
+              <Box sx={{ p: 2.5, pt: 2, width: '100%' }}>
+                <Typography variant="h6" sx={{ fontWeight: 600, color: '#181A1B', fontSize: 20, mb: 0.5 }}>
                   {leader.name}
                 </Typography>
-                <Typography sx={{ color: '#44474A', fontSize: 18 }}>
+                <Typography sx={{ color: '#44474A', fontSize: 16 }}>
                   {leader.role}
                 </Typography>
               </Box>
