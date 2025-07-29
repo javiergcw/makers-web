@@ -23,7 +23,11 @@ export default function Home() {
       <WhyChooseSection />
       <SensorSolutionsSection />
       <TestimonialsCaseStudySection />
-      <HeroBanner />
+      <HeroBanner 
+        bannerText="Bringing your machines back to their"
+        buttonText="Start today"
+        buttonRedirect="/canopy"
+      />
     </Box>
   );
 }

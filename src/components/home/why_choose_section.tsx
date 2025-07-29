@@ -9,61 +9,135 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import AddIcon from '@mui/icons-material/Add';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import LockIcon from '@mui/icons-material/Lock';
+import { colors } from '../utils/color';
 
 const StyledCard = styled(Card)(({ theme }) => ({
   backgroundColor: 'white',
   borderRadius: '16px',
-  padding: '32px',
+  padding: theme.spacing(3), // 24px por defecto
   height: '100%',
   transition: 'all 0.3s ease-in-out',
   cursor: 'pointer',
   border: 'none',
-  boxShadow: 'none',
+  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+  
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(4), // 32px en desktop
+  },
   
   '&:hover': {
-    backgroundColor: '#FFD700',
+    backgroundColor: colors.primary.orange,
     transform: 'translateY(-8px)',
-    boxShadow: '0 12px 40px rgba(255, 215, 0, 0.3)',
+    boxShadow: '0 12px 40px rgba(254, 83, 55, 0.3)',
+    
+    '& .card-title, & .card-description': {
+      color: 'white',
+    },
+    
+    '& .icon-container': {
+      backgroundColor: 'white',
+      borderColor: 'white',
+      
+      '& .MuiSvgIcon-root': {
+        color: colors.primary.orange,
+      },
+    },
+    
+    '& .small-icon': {
+      backgroundColor: 'white',
+      
+      '& .MuiSvgIcon-root': {
+        color: colors.primary.orange,
+      },
+    },
+  },
+  
+  // Mejorar experiencia táctil en móvil
+  [theme.breakpoints.down('md')]: {
+    '&:active': {
+      transform: 'scale(0.98)',
+      backgroundColor: colors.primary.orange,
+      
+      '& .card-title, & .card-description': {
+        color: 'white',
+      },
+      
+      '& .icon-container': {
+        backgroundColor: 'white',
+        borderColor: 'white',
+        
+        '& .MuiSvgIcon-root': {
+          color: colors.primary.orange,
+        },
+      },
+      
+      '& .small-icon': {
+        backgroundColor: 'white',
+        
+        '& .MuiSvgIcon-root': {
+          color: colors.primary.orange,
+        },
+      },
+    },
   },
 }));
 
 const IconContainer = styled(Box)(({ theme }) => ({
-  width: '60px',
-  height: '60px',
+  width: '50px',
+  height: '50px',
   borderRadius: '50%',
   backgroundColor: 'white',
   border: '2px solid #e0e0e0',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  marginBottom: '24px',
+  marginBottom: theme.spacing(2), // 16px por defecto
   position: 'relative',
   transition: 'all 0.3s ease-in-out',
   
+  [theme.breakpoints.up('md')]: {
+    width: '60px',
+    height: '60px',
+    marginBottom: theme.spacing(3), // 24px en desktop
+  },
+  
   '& .MuiSvgIcon-root': {
-    fontSize: '28px',
+    fontSize: '24px',
     color: '#666',
     transition: 'all 0.3s ease-in-out',
+    
+    [theme.breakpoints.up('md')]: {
+      fontSize: '28px',
+    },
   },
 }));
 
-const SmallIcon = styled(Box)({
+const SmallIcon = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: '-4px',
   right: '-4px',
-  width: '20px',
-  height: '20px',
+  width: '18px',
+  height: '18px',
   borderRadius: '50%',
   backgroundColor: '#666',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   
-  '& .MuiSvgIcon-root': {
-    fontSize: '12px',
-    color: 'white',
+  [theme.breakpoints.up('md')]: {
+    width: '20px',
+    height: '20px',
   },
-});
+  
+  '& .MuiSvgIcon-root': {
+    fontSize: '10px',
+    color: 'white',
+    
+    [theme.breakpoints.up('md')]: {
+      fontSize: '12px',
+    },
+  },
+}));
 
 const StyledCardContent = styled(CardContent)({
   padding: '0 !important',
@@ -97,22 +171,21 @@ const WhyChooseSection = () => {
   return (
     <Box
       sx={{
-        backgroundColor: '#f5f5f5',
-        py: 8,
-        minHeight: '100vh',
+        backgroundColor: colors.secondary.peach,
+        py: { xs: 4, md: 8 }, // Reducir padding vertical en móvil
         display: 'flex',
         alignItems: 'center',
       }}
     >
-      <Container maxWidth={false} sx={{ maxWidth: '1410px', mx: 'auto' }}>
-        <Box textAlign="center" mb={6}>
+      <Container maxWidth={false} sx={{ maxWidth: '1280px', mx: 'auto', px: { xs: 2, md: 3 } }}>
+        <Box textAlign="center" mb={{ xs: 4, md: 6 }}>
           <Typography
             variant="h2"
             component="h2"
             sx={{
-              fontWeight: 700,
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              mb: 3,
+              fontWeight: 300,
+              fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3.5rem' },
+              mb: { xs: 2, md: 3 },
               position: 'relative',
               '&::after': {
                 content: '""',
@@ -120,9 +193,9 @@ const WhyChooseSection = () => {
                 bottom: '-8px',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '120px',
+                width: { xs: '80px', md: '120px' },
                 height: '4px',
-                backgroundColor: '#FFD700',
+                backgroundColor: colors.primary.orange,
                 borderRadius: '2px',
               }
             }}
@@ -132,11 +205,12 @@ const WhyChooseSection = () => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '1.2rem',
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
               color: '#666',
               maxWidth: '800px',
               mx: 'auto',
               lineHeight: 1.6,
+              px: { xs: 1, md: 0 }, // Agregar padding horizontal en móvil
             }}
           >
             Canopy helps you prioritise the issues that prevent your operations from running optimally. 
@@ -144,24 +218,34 @@ const WhyChooseSection = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', gap: 3, flexWrap: { xs: 'wrap', md: 'nowrap' } }}>
+        <Box sx={{ 
+          display: 'flex', 
+          gap: { xs: 2, md: 3 }, 
+          flexWrap: { xs: 'wrap', md: 'nowrap' },
+          flexDirection: { xs: 'column', md: 'row' }
+        }}>
           {features.map((feature, index) => (
-            <Box key={index} sx={{ flex: 1, minWidth: { xs: '100%', md: 'auto' } }}>
+            <Box key={index} sx={{ 
+              flex: 1, 
+              minWidth: { xs: '100%', md: 'auto' },
+              mb: { xs: 2, md: 0 } // Agregar margin bottom en móvil
+            }}>
               <StyledCard>
                 <StyledCardContent>
-                  <IconContainer>
+                  <IconContainer className="icon-container">
                     {feature.icon}
-                    <SmallIcon>
+                    <SmallIcon className="small-icon">
                       {feature.smallIcon}
                     </SmallIcon>
                   </IconContainer>
                   <Typography
                     variant="h5"
                     component="h3"
+                    className="card-title"
                     sx={{
                       fontWeight: 700,
-                      mb: 2,
-                      fontSize: '1.3rem',
+                      mb: { xs: 1.5, md: 2 },
+                      fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.3rem' },
                       lineHeight: 1.3,
                     }}
                   >
@@ -169,10 +253,11 @@ const WhyChooseSection = () => {
                   </Typography>
                   <Typography
                     variant="body1"
+                    className="card-description"
                     sx={{
-                      color: '#666',
+                      color: ' #666',
                       lineHeight: 1.6,
-                      fontSize: '1rem',
+                      fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
                     }}
                   >
                     {feature.description}
