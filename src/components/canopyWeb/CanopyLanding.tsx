@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Container from '@mui/material/Container';
 import { colors, getColorWithOpacity } from '../utils/color';
 
-const AiSolutionsBanner: React.FC = () => {
+const CanopyLanding: React.FC = () => {
   return (
     <Box sx={{
       backgroundColor: colors.secondary.peach,
@@ -55,56 +55,32 @@ const AiSolutionsBanner: React.FC = () => {
               maxWidth: { xs: '100%', md: '50%' },
             }}
           >
-            {/* Banner superior con "NEW" - Versión limpia */}
-            {/* <Box
+            {/* Botón Canopy
+            <Button
+              variant="contained"
               sx={{
-                display: 'flex',
-                alignItems: 'center',
-                background: 'rgba(0, 0, 0, 0.3)',
-                borderRadius: '999px',
-                px: 2,
-                py: 0.5,
-                mb: 3,
-                maxWidth: 400,
-                minHeight: 36,
+                background: 'linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%)',
+                color: colors.primary.purple,
+                borderRadius: '20px',
+                textTransform: 'none',
+                mb: 4,
+                px: 3,
+                py: 1,
+                fontSize: '1rem',
+                fontWeight: 600,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
-                backdropFilter: 'blur(10px)',
+                alignSelf: { xs: 'center', md: 'flex-start' },
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #f9fafb 0%, #ffffff 100%)',
+                  boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
+                },
               }}
             >
-              <Box
-                sx={{
-                  background: 'linear-gradient(135deg, #ffffff, #e5e7eb)',
-                  borderRadius: '999px',
-                  px: 1,
-                  py: 0.25,
-                  mr: 1,
-                }}
-              >
-                <Typography
-                  variant="caption"
-                  sx={{
-                    color: '#1f2937',
-                    fontWeight: 700,
-                    fontSize: '0.75rem',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  NEW
-                </Typography>
-              </Box>
-              <Typography
-                variant="body2"
-                sx={{
-                  color: '#ffffff',
-                  fontWeight: 500,
-                  fontSize: '0.875rem',
-                }}
-              >
-                Soluciones web innovadoras! →
-              </Typography>
-            </Box> */}
+              Canopy
+            </Button> */}
 
-            {/* Título principal - Versión limpia */}
+            {/* Título principal */}
             <Typography
               variant="h1"
               sx={{
@@ -118,12 +94,13 @@ const AiSolutionsBanner: React.FC = () => {
                 mx: { xs: 'auto', md: 0 },
               }}
             >
-              Creamos experiencias web
-              <br />
-              que transforman tu negocio
+              <Box component="span" sx={{ color: colors.accent.yellow }}>
+                AI-powered
+              </Box>{' '}
+              insights that make your machines thrive
             </Typography>
 
-            {/* Párrafo descriptivo - Versión limpia */}
+            {/* Párrafo descriptivo */}
             <Typography
               variant="body1"
               sx={{
@@ -146,19 +123,16 @@ const AiSolutionsBanner: React.FC = () => {
                 },
               }}
             >
-              Desarrollamos sitios web modernos, responsivos y optimizados
-              <br />
-              que impulsan tu presencia digital y convierten visitantes en clientes.
-              <br />
-              Tecnología de vanguardia para resultados excepcionales.
+              Increase the uptime and performance of your machines, with Canopy's unique
+              solutions for predictive maintenance and performance optimisation.
             </Typography>
 
-            {/* Botón de call-to-action - Versión limpia */}
+            {/* Botón de call-to-action */}
             <Button
               variant="contained"
               sx={{
                 background: 'linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%)',
-                color: '#1f2937',
+                color: "black",
                 borderRadius: '8px',
                 px: 4,
                 py: 1.5,
@@ -189,40 +163,28 @@ const AiSolutionsBanner: React.FC = () => {
                 },
               }}
             >
-              Inicia tu proyecto →
+              Get started →
             </Button>
           </Box>
 
           {/* Imagen - Lado derecho */}
-          <Box
-            sx={{
-              flex: 1,
-              display: 'flex',
-              justifyContent: { xs: 'center', md: 'flex-end' },
-              alignItems: 'center',
-              maxWidth: { xs: '100%', md: '50%' },
+          <Image
+            src="/image/imagen5.png"
+            alt="Canopy Dashboard"
+            width={1000}
+            height={700}
+            style={{
+              width: '100%',
+              height: 'auto',
+              maxWidth: '600px',
+              maxHeight: '500px',
+              objectFit: 'cover',
             }}
-          >
-            <Image
-              src="/image/home_imagen.png"
-              alt="AI Solutions Banner Image"
-              width={1000}
-              height={700}
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxWidth: '600px',
-                maxHeight: '500px',
-                borderRadius: '10px',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-                objectFit: 'cover',
-              }}
-            />
-          </Box>
+          />
         </Box>
       </Container>
     </Box>
   );
 };
 
-export default AiSolutionsBanner; 
+export default CanopyLanding;

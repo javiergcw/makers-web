@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
+import { colors } from '../utils/color';
 
 interface AutoCarouselProps {
   speed?: number; // Velocidad de movimiento en píxeles por segundo
@@ -59,8 +60,8 @@ const AutoCarousel: React.FC<AutoCarouselProps> = ({
         width: '100%',
         overflow: 'hidden',
         position: 'relative',
-        backgroundColor: '#fafafa',
-        py: 6,
+        backgroundColor: colors.secondary.peach,
+        pt: 10,
         px: 0,
       }}
       onMouseEnter={handleMouseEnter}

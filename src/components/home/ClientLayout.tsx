@@ -8,10 +8,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-
                 <Navbar />
                 <main>{children}</main>
-         
             <JoinTeamFooterSection />
         </ThemeProvider>
     );

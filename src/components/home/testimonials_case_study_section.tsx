@@ -18,6 +18,7 @@ import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PersonIcon from '@mui/icons-material/Person';
+import { colors } from '../utils/color';
 
 interface Testimonial {
   quote: string;
@@ -67,41 +68,63 @@ const TestimonialsCaseStudySection: React.FC = () => {
   const currentTestimonial = testimonials[currentTestimonialIndex];
 
   return (
-    <Box sx={{ py: 8, backgroundColor: '#f8f9fa' }}>
-      <Container maxWidth="lg">
+    <Box sx={{ 
+      py: { xs: 4, sm: 6, md: 8 }, 
+      backgroundColor: colors.secondary.peach 
+    }}>
+      <Container maxWidth={false} sx={{ 
+        maxWidth: '1280px', 
+        mx: 'auto', 
+        px: { xs: 2, sm: 3, md: 0 } 
+      }}>
         {/* Sección superior: Testimonios + Imagen de lámpara */}
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, mb: 8 }}>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' }, 
+          gap: { xs: 3, sm: 4, md: 4 }, 
+          mb: { xs: 4, sm: 6, md: 8 } 
+        }}>
           {/* Sección de Testimonios */}
-          <Box sx={{ flex: { xs: '1', md: '1 1 50%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <Box sx={{ 
+            flex: { xs: '1', md: '1 1 50%' }, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            justifyContent: 'center' 
+          }}>
             <Typography 
               variant="h3" 
               component="h2" 
               sx={{ 
                 fontWeight: 'bold',
                 color: '#333',
-                mb: 4,
-                fontSize: { xs: '2rem', md: '2.5rem' }
+                mb: { xs: 3, sm: 4 },
+                fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' },
+                lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 }
               }}
             >
               Why our customers love Jungle
             </Typography>
             
-            <Box sx={{ position: 'relative', mb: 4 }}>
+            <Box sx={{ position: 'relative', mb: { xs: 3, sm: 4 } }}>
               <Typography 
                 variant="body1" 
                 sx={{ 
                   color: '#333',
                   lineHeight: 1.8,
-                  fontSize: '1.1rem',
+                  fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
                   fontStyle: 'italic',
-                  mb: 3
+                  mb: { xs: 2, sm: 3 }
                 }}
               >
                 "{currentTestimonial.quote}"
               </Typography>
               
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Avatar sx={{ bgcolor: '#e0e0e0', width: 40, height: 40 }}>
+                <Avatar sx={{ 
+                  bgcolor: '#e0e0e0', 
+                  width: { xs: 35, sm: 40 }, 
+                  height: { xs: 35, sm: 40 } 
+                }}>
                   <PersonIcon />
                 </Avatar>
                 <Box>
@@ -109,7 +132,8 @@ const TestimonialsCaseStudySection: React.FC = () => {
                     variant="subtitle1" 
                     sx={{ 
                       fontWeight: 'bold',
-                      color: '#333'
+                      color: '#333',
+                      fontSize: { xs: '0.95rem', sm: '1rem' }
                     }}
                   >
                     {currentTestimonial.author}
@@ -118,7 +142,7 @@ const TestimonialsCaseStudySection: React.FC = () => {
                     variant="body2" 
                     sx={{ 
                       color: '#666',
-                      fontSize: '0.9rem'
+                      fontSize: { xs: '0.8rem', sm: '0.9rem' }
                     }}
                   >
                     {currentTestimonial.position}, {currentTestimonial.company}
@@ -151,14 +175,19 @@ const TestimonialsCaseStudySection: React.FC = () => {
           </Box>
 
           {/* Imagen de la lámpara */}
-          <Box sx={{ flex: { xs: '1', md: '1 1 50%' }, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Box sx={{ 
+            flex: { xs: '1', md: '1 1 50%' }, 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center' 
+          }}>
             <Box 
               sx={{ 
                 position: 'relative',
                 width: '100%',
-                maxWidth: 400,
-                height: 300,
-                borderRadius: 2,
+                maxWidth: { xs: 300, sm: 350, md: 400 },
+                height: { xs: 200, sm: 250, md: 300 },
+                borderRadius: { xs: 1, md: 2 },
                 overflow: 'hidden'
               }}
             >
@@ -173,15 +202,19 @@ const TestimonialsCaseStudySection: React.FC = () => {
         </Box>
 
         {/* Sección inferior: Caso de Estudio */}
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { xs: 'column', md: 'row' }, 
+          gap: { xs: 3, sm: 4, md: 4 } 
+        }}>
           {/* Imagen del caso de estudio */}
           <Box sx={{ flex: { xs: '1', md: '1 1 50%' } }}>
             <Box 
               sx={{ 
                 position: 'relative',
                 width: '100%',
-                height: 300,
-                borderRadius: 2,
+                height: { xs: 200, sm: 250, md: 300 },
+                borderRadius: { xs: 1, md: 2 },
                 overflow: 'hidden'
               }}
             >
@@ -195,26 +228,33 @@ const TestimonialsCaseStudySection: React.FC = () => {
                 label={caseStudy.date}
                 sx={{
                   position: 'absolute',
-                  top: 16,
-                  left: 16,
+                  top: { xs: 12, sm: 16 },
+                  left: { xs: 12, sm: 16 },
                   backgroundColor: 'rgba(0,0,0,0.7)',
                   color: 'white',
-                  fontSize: '0.8rem'
+                  fontSize: { xs: '0.7rem', sm: '0.8rem' },
+                  height: { xs: 24, sm: 32 }
                 }}
               />
             </Box>
           </Box>
 
           {/* Contenido del caso de estudio */}
-          <Box sx={{ flex: { xs: '1', md: '1 1 50%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <Box sx={{ 
+            flex: { xs: '1', md: '1 1 50%' }, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            justifyContent: 'center' 
+          }}>
             <Typography 
               variant="h4" 
               component="h3" 
               sx={{ 
                 fontWeight: 'bold',
                 color: '#333',
-                mb: 2,
-                fontSize: { xs: '1.5rem', md: '1.8rem' }
+                mb: { xs: 2, sm: 2 },
+                fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.8rem' },
+                lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 }
               }}
             >
               {caseStudy.title}
@@ -225,8 +265,8 @@ const TestimonialsCaseStudySection: React.FC = () => {
               sx={{ 
                 color: '#666',
                 lineHeight: 1.6,
-                mb: 3,
-                fontSize: '1rem'
+                mb: { xs: 2, sm: 3 },
+                fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' }
               }}
             >
               {caseStudy.description}
@@ -236,14 +276,14 @@ const TestimonialsCaseStudySection: React.FC = () => {
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: '#FFD700',
-                  color: '#333',
+                  backgroundColor: colors.primary.orange,
+                  color: colors.neutral.white,
                   fontWeight: 'bold',
-                  px: 3,
-                  py: 1.5,
-                  borderRadius: 2,
+                  px: { xs: 2, sm: 3 },
+                  py: { xs: 1, sm: 1.5 },
+                  borderRadius: { xs: 1, md: 2 },
                   textTransform: 'none',
-                  fontSize: '1rem',
+                  fontSize: { xs: '0.9rem', sm: '1rem' },
                   '&:hover': {
                     backgroundColor: '#FFC700'
                   }

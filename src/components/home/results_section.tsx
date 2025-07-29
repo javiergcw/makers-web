@@ -8,15 +8,18 @@ import CardContent from '@mui/material/CardContent';
 import Chip from '@mui/material/Chip';
 import Image from 'next/image';
 import Link from 'next/link';
+import Container from '@mui/material/Container';
+import { colors } from '../utils/color';
 
 const ResultsSection: React.FC = () => {
   return (
+    <Container maxWidth={false} sx={{ backgroundColor: colors.secondary.peach }}>
     <Box
       sx={{
-        backgroundColor: '#f8f9fa',
-        py: 8,
-        px: { xs: 2, md: 4 },
-        minHeight: '100vh',
+        maxWidth: '1280px',
+        mx: 'auto',
+        py: { xs: 8, md: 15 },
+        px: { xs: 1.5, sm: 2, md: 4 },
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -26,7 +29,7 @@ const ResultsSection: React.FC = () => {
       <Box
         sx={{
           textAlign: 'center',
-          mb: 6,
+          mb: { xs: 4, md: 6 },
           maxWidth: '800px',
           mx: 'auto',
         }}
@@ -34,38 +37,38 @@ const ResultsSection: React.FC = () => {
         <Typography
           variant="h2"
           sx={{
-            fontWeight: 700,
-            fontSize: { xs: '2.5rem', md: '3.5rem' },
-            color: '#1a1a1a',
-            mb: 2,
+            lineHeight: { xs: 1.1, md: 1 },
+            fontWeight: 300,
+            fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3.5rem' },
+            color: ' #1a1a1a',
+            mb: { xs: 1.5, md: 2 },
             position: 'relative',
+            
             '&::after': {
               content: '""',
               position: 'absolute',
-              bottom: '-8px',
+              bottom: { xs: '-6px', md: '-8px' },
               left: '50%',
               transform: 'translateX(-50%)',
-              width: '80px',
-              height: '4px',
-              backgroundColor: '#ffd700',
+              width: { xs: '60px', md: '80px' },
+              height: { xs: '3px', md: '4px' },
+              backgroundColor: colors.primary.orange,
               borderRadius: '2px',
             },
           }}
         >
-          Results that speak{' '}
-          <Box component="span" sx={{ color: '#1a1a1a' }}>
-            volumes
-          </Box>
+          Results that speak volumes
         </Typography>
         
         <Typography
           variant="body1"
           sx={{
-            fontSize: '1.1rem',
+            fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
             color: '#666666',
             lineHeight: 1.6,
             maxWidth: '600px',
             mx: 'auto',
+            px: { xs: 1, md: 0 },
           }}
         >
           At Jungle, we increase production across our entire customer portfolio. 
@@ -78,7 +81,7 @@ const ResultsSection: React.FC = () => {
          sx={{
            display: 'grid',
            gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
-           gap: 4,
+           gap: { xs: 3, md: 4 },
            maxWidth: '900px',
            mx: 'auto',
          }}
@@ -86,13 +89,13 @@ const ResultsSection: React.FC = () => {
         {/* Card 1: Improving wind farm performance */}
         <Card
           sx={{
-            borderRadius: 3,
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+            borderRadius: { xs: 2, md: 3 },
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04)',
             overflow: 'hidden',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
             '&:hover': {
-              transform: 'translateY(-8px)',
-              boxShadow: '0 16px 48px rgba(0, 0, 0, 0.15)',
+              transform: { xs: 'translateY(-4px)', md: 'translateY(-8px)' },
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 215, 0, 0.1)',
             },
           }}
         >
@@ -104,7 +107,7 @@ const ResultsSection: React.FC = () => {
                height={300}
                style={{
                  width: '100%',
-                 height: '300px',
+                 height: '250px',
                  objectFit: 'cover',
                }}
              />
@@ -114,23 +117,26 @@ const ResultsSection: React.FC = () => {
                label="Increase production"
                sx={{
                  position: 'absolute',
-                 top: 16,
-                 left: 16,
-                 backgroundColor: '#4a4a4a',
+                 top: { xs: 12, md: 16 },
+                 left: { xs: 12, md: 16 },
+                 backgroundColor: colors.primary.orange,
                  color: 'white',
                  fontWeight: 600,
-                 fontSize: '0.875rem',
+                 fontSize: { xs: '0.75rem', md: '0.875rem' },
+                 height: { xs: '24px', md: '32px' },
                }}
              />
            </Box>
 
-          <CardContent sx={{ p: 3 }}>
+          <CardContent sx={{ p: { xs: 2, md: 3 } }}>
             <Typography
               variant="h5"
               sx={{
                 fontWeight: 700,
                 color: '#1a1a1a',
-                mb: 2,
+                mb: { xs: 1.5, md: 2 },
+                fontSize: { xs: '1.25rem', md: '1.5rem' },
+                lineHeight: { xs: 1.3, md: 1.2 },
               }}
             >
               Improving wind farm performance
@@ -141,7 +147,8 @@ const ResultsSection: React.FC = () => {
               sx={{
                 color: '#666666',
                 lineHeight: 1.6,
-                mb: 3,
+                mb: { xs: 2, md: 3 },
+                fontSize: { xs: '0.9rem', md: '1rem' },
               }}
             >
               Wind farms face grid constraints, which affect power generation. 
@@ -154,7 +161,7 @@ const ResultsSection: React.FC = () => {
                 sx={{
                   color: '#1a1a1a',
                   fontWeight: 600,
-                  fontSize: '1rem',
+                  fontSize: { xs: '0.9rem', md: '1rem' },
                   '&:hover': {
                     color: '#ffd700',
                   },
@@ -170,13 +177,13 @@ const ResultsSection: React.FC = () => {
         {/* Card 2: Avoiding turbine downtime */}
         <Card
           sx={{
-            borderRadius: 3,
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+            borderRadius: { xs: 2, md: 3 },
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04)',
             overflow: 'hidden',
             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
             '&:hover': {
-              transform: 'translateY(-8px)',
-              boxShadow: '0 16px 48px rgba(0, 0, 0, 0.15)',
+              transform: { xs: 'translateY(-4px)', md: 'translateY(-8px)' },
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 215, 0, 0.1)',
             },
           }}
         >
@@ -188,7 +195,7 @@ const ResultsSection: React.FC = () => {
                height={300}
                style={{
                  width: '100%',
-                 height: '300px',
+                 height: '250px',
                  objectFit: 'cover',
                }}
              />
@@ -198,23 +205,26 @@ const ResultsSection: React.FC = () => {
                label="Reduce downtime"
                sx={{
                  position: 'absolute',
-                 top: 16,
-                 left: 16,
-                 backgroundColor: '#0066cc',
+                 top: { xs: 12, md: 16 },
+                 left: { xs: 12, md: 16 },
+                 backgroundColor: colors.primary.orange,
                  color: 'white',
                  fontWeight: 600,
-                 fontSize: '0.875rem',
+                 fontSize: { xs: '0.75rem', md: '0.875rem' },
+                 height: { xs: '24px', md: '32px' },
                }}
              />
            </Box>
 
-          <CardContent sx={{ p: 3 }}>
+          <CardContent sx={{ p: { xs: 2, md: 3 } }}>
             <Typography
               variant="h5"
               sx={{
                 fontWeight: 700,
                 color: '#1a1a1a',
-                mb: 2,
+                mb: { xs: 1.5, md: 2 },
+                fontSize: { xs: '1.25rem', md: '1.5rem' },
+                lineHeight: { xs: 1.3, md: 1.2 },
               }}
             >
               Avoiding turbine downtime
@@ -225,7 +235,8 @@ const ResultsSection: React.FC = () => {
               sx={{
                 color: '#666666',
                 lineHeight: 1.6,
-                mb: 3,
+                mb: { xs: 2, md: 3 },
+                fontSize: { xs: '0.9rem', md: '1rem' },
               }}
             >
               In this case study, learn how Jungle's AI solution helped our customer 
@@ -238,7 +249,7 @@ const ResultsSection: React.FC = () => {
                 sx={{
                   color: '#1a1a1a',
                   fontWeight: 600,
-                  fontSize: '1rem',
+                  fontSize: { xs: '0.9rem', md: '1rem' },
                   '&:hover': {
                     color: '#ffd700',
                   },
@@ -252,6 +263,7 @@ const ResultsSection: React.FC = () => {
         </Card>
       </Box>
     </Box>
+    </Container>
   );
 };
 
