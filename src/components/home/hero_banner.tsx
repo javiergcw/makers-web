@@ -95,6 +95,8 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
                     variant="h1"
                     component="h1"
                     sx={{
+                        maxWidth: '1280px',
+                        margin: '0 auto',
                         color: colors.neutral.white,
                         fontWeight: 300,
                         fontSize: { 

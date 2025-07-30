@@ -20,7 +20,11 @@ export default function Canopy() {
             <CanopyScrollImageComponent />
             <CanopySolutionsSection />
             <CanopyFAQSection />
-            <CanopyBlogPreview />
+            <CanopyBlogPreview 
+                title="Últimos artículos"
+                subtitle="Descubre las últimas innovaciones en mantenimiento predictivo y análisis de datos industriales"
+                baseRoute="/canopy"
+            />
             <HeroBanner
                 bannerText="Predicting when and why electrical assets fail"
                 buttonText="Start today"
