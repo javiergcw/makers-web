@@ -21,28 +21,32 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
     {
-        question: "Do we need to install specific sensors to get meaningful insights?",
-        answer: "No, you don't need to install specific sensors. Our platform can work with existing sensor data and can integrate with most common industrial sensors. We can also help you identify what additional sensors might be beneficial for your specific use case."
+        question: "What are your AI models doing, how are weights defined, etc?",
+        answer: "Our AI models use advanced machine learning algorithms to analyze weather patterns and historical data. The weights are dynamically adjusted based on real-time performance and accuracy metrics. We employ ensemble methods that combine multiple models to ensure robust and reliable forecasts."
     },
     {
-        question: "How long does it take to get started?",
-        answer: "Getting started is quick and straightforward. Initial setup typically takes 1-2 weeks, including data integration and platform configuration. You can start seeing insights within the first month of implementation."
+        question: "What kind of weather models do you use?",
+        answer: "We utilize a combination of numerical weather prediction models, including ECMWF, GFS, and regional models. Our platform integrates multiple data sources and applies proprietary algorithms to enhance forecast accuracy for renewable energy applications."
     },
     {
-        question: "How much data do you require?",
-        answer: "We can work with varying amounts of data. For meaningful insights, we recommend at least 3 months of historical data, but we can start with less and build up over time. Our platform is designed to be flexible and scalable."
+        question: "What information do you need to get started?",
+        answer: "To get started, we need basic information about your renewable energy assets, including location coordinates, capacity, and historical production data. We can also work with existing weather data and will guide you through the integration process."
     },
     {
-        question: "Do you provide Canopy integrations?",
-        answer: "Yes, we provide comprehensive Canopy integrations. Our platform is designed to work seamlessly with Canopy systems, offering enhanced monitoring, analytics, and predictive capabilities for your Canopy-based operations."
+        question: "How much historical SCADA data is required for your forecasts?",
+        answer: "We recommend at least 6-12 months of historical SCADA data for optimal forecast accuracy. However, we can start with as little as 3 months of data and improve our models as more data becomes available. The more historical data we have, the better our predictions become."
     },
     {
-        question: "Can you work with any type of machine?",
-        answer: "Absolutely! Our platform is designed to work with any type of industrial machine or equipment. Whether you have CNC machines, robotic systems, conveyor belts, or any other industrial equipment, we can provide valuable insights and monitoring capabilities."
+        question: "What's the advantage of using your API solution?",
+        answer: "Our API solution provides real-time access to accurate weather forecasts and power predictions. It offers seamless integration with existing systems, reduces operational costs, and enables data-driven decision making for renewable energy operations."
+    },
+    {
+        question: "Do you offer free trials?",
+        answer: "Yes, we offer free trials to help you evaluate our platform's capabilities. Contact our team to set up a trial period where you can test our forecasting accuracy and integration features with your specific use case."
     }
 ];
 
-const CanopyFAQSection: React.FC = () => {
+const ToucanFAQSection: React.FC = () => {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -180,4 +184,4 @@ const CanopyFAQSection: React.FC = () => {
     );
 };
 
-export default CanopyFAQSection;
+export default ToucanFAQSection; 

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import {
     Box,
     Typography,
@@ -57,13 +57,25 @@ interface CanopyBlogSectionProps {
 
 const CanopyBlogSection: React.FC<CanopyBlogSectionProps> = ({ onBlogClick }) => {
     const router = useRouter();
+    const pathname = usePathname();
+
+    // Detectar automáticamente la ruta base del pathname actual
+    const getBaseRoute = () => {
+        const pathSegments = pathname.split('/').filter(Boolean);
+        if (pathSegments.length > 0) {
+            return `/${pathSegments[0]}`;
+        }
+        return '/canopy'; // Fallback
+    };
+
+    const currentBaseRoute = getBaseRoute();
 
     const handleBlogClick = (slug: string) => {
         if (onBlogClick) {
             onBlogClick(slug);
         } else {
             // Default behavior - navigate to blog detail page
-            router.push(`/canopy/${slug}`);
+            router.push(`${currentBaseRoute}/${slug}`);
         }
     };
 
